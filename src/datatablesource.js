@@ -1,7 +1,7 @@
 export const studentsColumns = [
 	{ field: "id", headerName: "ID", width: 70 },
 	{
-		field: "student",
+		field: "first_name",
 		headerName: "Student",
 		width: 230,
 		renderCell: (params) => {
