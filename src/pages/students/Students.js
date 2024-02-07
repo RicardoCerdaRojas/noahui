@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Datatable from "../../components/datatable/Datatable";
 import "./students.scss";
 
-const Students = () => {
+const Students = ({ getStudentIDHandler }) => {
 	return (
 		<div className="list">
 			<Sidebar />

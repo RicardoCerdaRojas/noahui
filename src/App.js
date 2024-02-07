@@ -6,13 +6,19 @@ import ViewStudent from "./pages/viewstudent/ViewStudent";
 import Students from "./pages/students/Students";
 import { courseInputs, studentInputs } from "./setting/formSource";
 import "./style/dark.scss";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 
 function App() {
+	const [studentId, setStudentId] = useState("");
 	const { darkMode } = useContext(DarkModeContext);
 	const { currentUser } = useContext(AuthContext);
+
+	const getStudentIDHandler = (id) => {
+		console.log("The student ID is: " + id);
+		setStudentId(id);
+	};
 
 	const RequireAuth = ({ children }) => {
 		//console.log(children);
@@ -67,7 +73,7 @@ function App() {
 								index
 								element={
 									<RequireAuth>
-										<Students />
+										<Students getStudentID={getStudentIDHandler} />
 									</RequireAuth>
 								}
 							></Route>
